@@ -2,11 +2,6 @@
 > 开发过程中的常用函数封装整理，避免多次编写、复制，提升效率
 
 ## 使用
-### npm
-```bash
-npm i uTools -S
-import uTools from 'uTools'
-```
 ### 浏览器
 `window.uTools`
 
