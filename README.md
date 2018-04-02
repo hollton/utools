@@ -1,49 +1,48 @@
-# utools 前端工具库
+# uTools 前端工具库
 > 开发过程中的常用函数封装整理，避免多次编写、复制，提升效率
 
 ## 使用
+### npm
+```bash
+npm i uTools -S
+import uTools from 'uTools'
+```
 ### 浏览器
-暂通过引入打包后的js文件，`window.utools`调用方法。
+`window.uTools`
 
 ## API
-### find
-utools.find(array, obj)
+### findfind(array, obj)
 返回数组中包含指定键值的子项
 ``` javascript
-utools.find([{id:'1',name:'a'},{id:'2',name:'b',...}], {id:'1'})
+uTools.find([{id:'1',name:'a'},{id:'2',name:'b',...}], {id:'1'})
 // {id:'1',name:'a'}
 ```
 
-### findIndex
-utools.findIndex(array, obj)
+### findIndex(array, obj)
 返回数组中包含指定键值的子项在数组中的索引
 
 ``` javascript
-utools.findIndex([{id:'1',name:'a'},{id:'2',name:'b',...}], {id:'1'})
+uTools.findIndex([{id:'1',name:'a'},{id:'2',name:'b',...}], {id:'1'})
 // 0
 ```
 
-### clone
-utools.clone(obj)
+### clone(obj)
 浅拷贝
 
-### deepClone
-utools.deepClone(obj)
+### deepClone(obj)
 深拷贝
 
-### getUrlParams
-utools.getUrlParams(url)
+### getUrlParams(url)
 返回url参数对象
 #### 参数
 * url：非必须，默认为当前路由参数
 
 ``` javascript
-utools.getUrlParams('http://xxx/?a=1&b=2&b=3')
+uTools.getUrlParams('http://xxx/?a=1&b=2&b=3')
 // {a:'1', b: ['2', '3']}
 ```
 
-### asyncLoop
-utools.asyncLoop(array, asyncFn, doneFn)
+### asyncLoop(array, asyncFn, doneFn)
 异步遍历操作
 #### 参数
 * array：必须，待遍历数据
@@ -51,7 +50,7 @@ utools.asyncLoop(array, asyncFn, doneFn)
 * doneFn：必须，遍历结束回调
 
 ``` javascript
-utools.asyncLoop(data, (loopFn, item, index) => {
+uTools.asyncLoop(data, (loopFn, item, index) => {
   async(item).then(() => {
     loopFn()
   })
@@ -60,13 +59,12 @@ utools.asyncLoop(data, (loopFn, item, index) => {
 })
 ```
 
-### isEmpty
-utools.isEmpty(obj)
+### isEmpty(obj)
 判断是否为空
 #### 参数
 * obj：必须，(object | array | string)
 
 ``` javascript
-utools.isEmpty({})
+uTools.isEmpty({})
 // true
 ```

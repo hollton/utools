@@ -1,5 +1,5 @@
-import utools from './utils/index';
+import uTools from './utils/index';
 
-window.utools = utools
+window.uTools = uTools
 
-export default utools;
+export default uTools;

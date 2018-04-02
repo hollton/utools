@@ -1,5 +1,5 @@
 {
-  "name": "utools",
+  "name": "uTools",
   "version": "1.0.0",
   "description": "front tools",
   "main": "index.js",
@@ -14,5 +14,13 @@
     "babel-preset-es2015": "^6.24.1",
     "html-webpack-plugin": "^3.0.6",
     "webpack": "^3.5.3"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hollton/utools.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hollton/utools/issues"
+  },
+  "homepage": "https://github.com/hollton/utools#readme"
 }

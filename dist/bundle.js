@@ -169,7 +169,7 @@ var _index2 = _interopRequireDefault(_index);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-window.utools = _index2.default;
+window.uTools = _index2.default;
 
 exports.default = _index2.default;
 
