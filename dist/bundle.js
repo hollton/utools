@@ -212,6 +212,14 @@ var _asyncLoop = __webpack_require__(8);
 
 var _asyncLoop2 = _interopRequireDefault(_asyncLoop);
 
+var _debounce = __webpack_require__(9);
+
+var _debounce2 = _interopRequireDefault(_debounce);
+
+var _throttle = __webpack_require__(10);
+
+var _throttle2 = _interopRequireDefault(_throttle);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = {
@@ -221,7 +229,9 @@ exports.default = {
     clone: _clone2.default,
     deepClone: _deepClone2.default,
     getUrlParams: _getUrlParams2.default,
-    asyncLoop: _asyncLoop2.default
+    asyncLoop: _asyncLoop2.default,
+    debounce: _debounce2.default,
+    throttle: _throttle2.default
 };
 
 /***/ }),
@@ -380,6 +390,90 @@ var asyncLoop = function asyncLoop(arrData, asyncFn, doneFn) {
 };
 
 exports.default = asyncLoop;
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+/**
+ * [debounce] 函数去抖：N ms内不再被触发时即执行一次
+ * @param  {[Function]} func:执行函数
+ * @param  {[Number]} delay:执行间隔，单位毫秒（ms）
+ * @return {[Function]} 去抖函数
+ * demo http://demo.nimius.net/debounce_throttle
+ */
+
+var debounce = function debounce(func, delay) {
+    var timer = void 0;
+    var context = void 0;
+    var args = void 0;
+
+    return function () {
+        context = this;
+        args = arguments;
+
+        clearTimeout(timer);
+
+        timer = setTimeout(function () {
+            func.apply(context, args);
+        }, delay);
+    };
+};
+
+exports.default = debounce;
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+/**
+ * [throttle] 函数节流：保证N ms内只执行一次
+ * @param  {[Function]} func:执行函数
+ * @param  {[Number]} delay:执行间隔，单位毫秒（ms）
+ * @return {[Function]} 节流函数
+ * http://demo.nimius.net/debounce_throttle
+ */
+
+var throttle = function throttle(func, delay) {
+    var timer = void 0;
+    var context = void 0;
+    var args = void 0;
+    var lastTime = void 0;
+    var currTime = void 0;
+    return function () {
+        context = this;
+        args = arguments;
+        currTime = +new Date();
+
+        clearTimeout(timer);
+
+        if (!lastTime) {
+            lastTime = currTime;
+        }
+        if (currTime - lastTime >= delay) {
+            func.apply(context, args);
+            lastTime = currTime;
+        } else {
+            timer = setTimeout(function () {
+                func.apply(context, args);
+            }, delay);
+        }
+    };
+};
+
+exports.default = throttle;
 
 /***/ })
 /******/ ]);

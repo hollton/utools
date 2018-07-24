@@ -63,3 +63,27 @@ uTools.asyncLoop(data, (loopFn, item, index) => {
 uTools.isEmpty({})
 // true
 ```
+
+### debounce(func, delay)
+函数去抖：N ms内不再被触发时即执行一次
+#### 参数
+* func: 必须，执行函数
+* delay: 执行间隔，单位毫秒（ms）
+#### 返回
+* func: 去抖函数
+
+``` javascript
+window.onresize = uTools.debounce(myFunc, 100);
+```
+
+### throttle(func, delay)
+函数节流：保证N ms内只执行一次
+#### 参数
+* func: 必须，执行函数
+* delay: 执行间隔，单位毫秒（ms）
+#### 返回
+* func: 节流函数
+
+``` javascript
+window.onresize = uTools.throttle(myFunc, 100);
+```

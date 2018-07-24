@@ -5,6 +5,8 @@ import clone from './clone';
 import deepClone from './deepClone';
 import getUrlParams from './getUrlParams';
 import asyncLoop from './asyncLoop';
+import debounce from './debounce';
+import throttle from './throttle';
 
 export default {
     find,
@@ -13,5 +15,7 @@ export default {
     clone,
     deepClone,
     getUrlParams,
-    asyncLoop
+    asyncLoop,
+    debounce,
+    throttle
 };
