@@ -1,5 +1,5 @@
 /**
- * [throttle] 函数节流：保证N ms内只执行一次
+ * [throttle] 函数节流：保证N ms后执行一次
  * @param  {[Function]} func:执行函数
  * @param  {[Number]} delay:执行间隔，单位毫秒（ms）
  * @return {[Function]} 节流函数
