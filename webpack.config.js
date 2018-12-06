@@ -2,10 +2,12 @@ const path = require('path')
 const htmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-  entry: './index.js',
+  entry: './src/index.js',
   output: {
+    filename: `utools.min.js`,
   	path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    library: 'utools',
+    libraryTarget: "umd"
   },
   module: {
   	loaders: [{

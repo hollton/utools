@@ -9,7 +9,7 @@ import debounce from './debounce';
 import throttle from './throttle';
 import sliceArray from './sliceArray';
 
-export default {
+export {
     find,
     findIndex,
     isEmpty,
