@@ -13,7 +13,7 @@ let clone = (obj,deepFlag)=>{
         for(let i in obj){
             if(obj.hasOwnProperty(i)){
                 if(deepFlag){
-                    newObj[i] = clone(obj[i]);
+                    newObj[i] = clone(obj[i], deepFlag);
                 } else {
                     newObj[i] = obj[i];
                 }

@@ -7,6 +7,7 @@ import getUrlParams from './getUrlParams';
 import asyncLoop from './asyncLoop';
 import debounce from './debounce';
 import throttle from './throttle';
+import sliceArray from './sliceArray';
 
 export default {
     find,
@@ -17,5 +18,6 @@ export default {
     getUrlParams,
     asyncLoop,
     debounce,
-    throttle
+    throttle,
+    sliceArray
 };
