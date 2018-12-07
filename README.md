@@ -9,32 +9,32 @@
 
 ### npm
 ```
-    npm install es-utools  --save
+npm install es-utools  --save
 ```
 
 ### script
 ```
-    <script src="utools.min.js"></script>
+<script src="utools.min.js"></script>
 ```
 
 ## 使用
 
 ### npm
 ```
-    import * as utools from 'es-utools';
-    utools.find();
+import * as utools from 'es-utools';
+utools.find();
 ```
 
 ### npm 按需加载
 ```
-    import {find} from 'es-utools/src/find';
-    find();
+import {find} from 'es-utools/src/find';
+find();
 ```
 
 ### script
 挂载在全局变量 utools 下
 ```
-    utools.find();
+utools.find();
 ```
 
 ## API
