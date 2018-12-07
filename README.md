@@ -1,10 +1,37 @@
 # uTools 前端工具库
-> 开发过程中的常用函数封装整理，避免多次编写、复制，提升效率
+> 开发过程中的自用函数封装整理。
+
+## 安装
+
+### npm
+```
+    npm install es-utools  --save
+```
+
+### script
+```
+    <script src="utools.min.js"></script>
+```
 
 ## 使用
 
-### 浏览器
-`window.uTools`
+### npm
+```
+    import * as utools from 'es-utools';
+    utools.find();
+```
+
+### npm 按需加载
+```
+    import {find} from 'es-utools/src/find';
+    find();
+```
+
+### script
+挂载在全局变量 utools 下
+```
+    utools.find();
+```
 
 ## API
 

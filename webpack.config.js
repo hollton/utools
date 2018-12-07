@@ -1,8 +1,9 @@
 const path = require('path')
 const htmlWebpackPlugin = require('html-webpack-plugin')
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: './index.js',
   output: {
     filename: `utools.min.js`,
   	path: path.resolve(__dirname, 'dist'),
@@ -19,6 +20,7 @@ module.exports = {
   plugins: [
     new htmlWebpackPlugin({
       template: 'index.html'
-    })
+    }),
+    new CleanWebpackPlugin(['dist'])
   ]
 };
