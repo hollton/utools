@@ -1,4 +1,4 @@
-# uTools
+# utools
 [![npm](https://img.shields.io/npm/v/es-utools.svg)](https://www.npmjs.com/package/es-utools) 
 [![LICENSE MIT](https://img.shields.io/npm/l/es-utools.svg)](https://www.npmjs.com/package/es-utools) 
 
