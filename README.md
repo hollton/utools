@@ -14,7 +14,7 @@ npm install es-utools  --save
 
 ### script
 ```
-<script src="utools.min.js"></script>
+<script src="dist/utools.min.js"></script>
 ```
 
 ## 使用
@@ -39,7 +39,7 @@ utools.find();
 
 ## API
 
-### findfind(array, obj)
+### find(array, obj)
 返回数组中包含指定键值的子项
 #### params
 * array: 必须，待遍历查找数据
