@@ -14,7 +14,7 @@ npm install es-utools  --save
 
 ### script
 ```
-<script src="dist/utools.min.js"></script>
+<script src="index.js"></script>
 ```
 
 ## 使用
@@ -27,7 +27,7 @@ utools.find();
 
 ### npm 按需加载
 ```
-import {find} from 'es-utools/src/find';
+import {find} from 'es-utools';
 find();
 ```
 
