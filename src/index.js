@@ -8,6 +8,8 @@ import asyncLoop from './asyncLoop';
 import debounce from './debounce';
 import throttle from './throttle';
 import sliceArray from './sliceArray';
+import isNumber from './isNumber';
+import numRound from './numRound';
 
 export {
     find,
@@ -19,5 +21,7 @@ export {
     asyncLoop,
     debounce,
     throttle,
-    sliceArray
+    sliceArray,
+    isNumber,
+    numRound
 };

@@ -1,8 +1,8 @@
 /**
- * [description] 类似lodash _.find()，在指定数组中查找包含指定键值的子项并返回该子项
- * @param  {[type]} arrayData [{id:1,name:'a',...},{id:2,name:'b',...}]
- * @param  {[type]} keyItem   {id:1,name:'a'}
- * @return {[type]} findItem  {id:1,name:'a',...}
+ * find [在指定数组中查找包含指定键值的子项并返回该子项]
+ * @param  {[Array]} arrayData [待遍历查找数据]
+ * @param  {[Object]} keyItem [指定键值对象]
+ * @return {[Object]} findItem [匹配对象]
  */
 
 let find = (arrayData, keyItem, getIndex)=>{

@@ -1,8 +1,8 @@
 /**
- * [sliceArray] 将数组根据指定数（默认20）分割成多个数组
- * @param  {[Array]} arrayData:[1,2,3,4]
- * @param  {[Number]} step :2
- * @return {[Array]}  slicedArray :[[1,2],[3,4]]
+ * sliceArray [将数组根据指定数分割成多个数组]
+ * @param  {[Array]} arrayData [待切分数组]
+ * @param  {[Number]} step = 20 [切分间隔，默认20]
+ * @return {[Array]}  slicedArray [已切分包裹数组]
  */
 
 let sliceArray = (arrayData, step = 20)=>{

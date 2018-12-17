@@ -1,7 +1,7 @@
 /**
- * getUrlParams[获取url参数，默认取当前路由参数]
+ * getUrlParams [获取url参数，默认取当前路由参数]
  * @param  {[String]} url [含参数url]
- * @return {[Object]}     [params]
+ * @return {[Object]} params [参数对象]
  */
 
 let getUrlParams = (url) => {

@@ -1,7 +1,7 @@
 /**
- * [description] 判断是否为空对象
- * @param  {[Object]} obj
- * @return {[boolean]}
+ * isEmpty [判断是否为空对象]
+ * @param  {[Object]} obj [待空判断对象]
+ * @return {[Boolean]} isEmpty [是否为空]
  */
 
 let isEmpty = (obj)=>{

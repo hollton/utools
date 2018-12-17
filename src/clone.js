@@ -1,8 +1,8 @@
 /**
- * [description] 对象或数组浅拷贝
- * @param  {[Object]} obj
- * @param  {[Object]} deepFlag  深递归拷贝
- * @return {[Object]} newObj
+ * clone [对象或数组浅拷贝]
+ * @param  {[Object]} obj [待拷贝对象]
+ * @param  {[Boolean]} deepFlag [深递归拷贝]
+ * @return {[Object]} newObj [拷贝对象]
  */
 
 let clone = (obj,deepFlag)=>{
