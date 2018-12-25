@@ -70,7 +70,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 13);
+/******/ 	return __webpack_require__(__webpack_require__.s = 16);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -94,10 +94,8 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
  */
 
 var clone = function clone(obj, deepFlag) {
-    var newObj = obj.constructor === Array ? [] : {};
-    if ((typeof obj === 'undefined' ? 'undefined' : _typeof(obj)) !== 'object') {
-        return obj;
-    } else {
+    if (obj && (typeof obj === 'undefined' ? 'undefined' : _typeof(obj)) === 'object') {
+        var newObj = obj.constructor === Array ? [] : {};
         for (var i in obj) {
             if (obj.hasOwnProperty(i)) {
                 if (deepFlag) {
@@ -107,8 +105,10 @@ var clone = function clone(obj, deepFlag) {
                 }
             }
         }
+        return newObj;
+    } else {
+        return obj;
     }
-    return newObj;
 };
 
 exports.default = clone;
@@ -319,15 +319,15 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 /**
- * getUrlParams [获取url参数，默认取当前路由参数]
+ * getUrlParams [获取url参数对象，默认window.location.href]
  * @param  {[String]} url [含参数url]
  * @return {[Object]} params [参数对象]
  */
 
 var getUrlParams = function getUrlParams(url) {
-  var hash = url || window.location.hash;
+  url = url || window.location.href;
   var params = {};
-  var search = hash.substr(hash.indexOf('?') + 1);
+  var search = url.substr(url.indexOf('?') + 1);
   var splitIndex = void 0;
   if (search) {
     search.split('&').forEach(function (item) {
@@ -362,7 +362,7 @@ exports.default = getUrlParams;
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.numRound = exports.isNumber = exports.sliceArray = exports.throttle = exports.debounce = exports.asyncLoop = exports.getUrlParams = exports.deepClone = exports.clone = exports.isEmpty = exports.findIndex = exports.find = undefined;
+exports.off = exports.on = exports.setScrollTop = exports.numRound = exports.isNumber = exports.sliceArray = exports.throttle = exports.debounce = exports.asyncLoop = exports.getUrlParams = exports.deepClone = exports.clone = exports.isEmpty = exports.findIndex = exports.find = undefined;
 
 var _find = __webpack_require__(1);
 
@@ -412,6 +412,18 @@ var _numRound = __webpack_require__(12);
 
 var _numRound2 = _interopRequireDefault(_numRound);
 
+var _setScrollTop = __webpack_require__(13);
+
+var _setScrollTop2 = _interopRequireDefault(_setScrollTop);
+
+var _on = __webpack_require__(14);
+
+var _on2 = _interopRequireDefault(_on);
+
+var _off = __webpack_require__(15);
+
+var _off2 = _interopRequireDefault(_off);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.find = _find2.default;
@@ -426,6 +438,9 @@ exports.throttle = _throttle2.default;
 exports.sliceArray = _sliceArray2.default;
 exports.isNumber = _isNumber2.default;
 exports.numRound = _numRound2.default;
+exports.setScrollTop = _setScrollTop2.default;
+exports.on = _on2.default;
+exports.off = _off2.default;
 
 /***/ }),
 /* 9 */
@@ -548,7 +563,8 @@ var _isNumber2 = _interopRequireDefault(_isNumber);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var numRound = function numRound(num) {
+var numRound = function numRound() {
+    var num = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
     var bit = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 2;
 
     if (!(0, _isNumber2.default)(num)) {
@@ -572,7 +588,102 @@ exports.default = numRound;
 "use strict";
 
 
-var req = __webpack_require__(14);
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+/**
+ * setScrollTop [设置滚动条距顶部距离]
+ * @param  {[Number]} top = 0 [距顶部距离]
+ * @param  {[Object]} ele [指定滚动条元素，默认document.documentElement]
+ * @return {[Number]} top [设定值]
+ */
+
+var setScrollTop = function setScrollTop() {
+  var top = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+  var ele = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : document.documentElement;
+
+  ele.scrollTop = top;
+  return top;
+};
+
+exports.default = setScrollTop;
+
+/***/ }),
+/* 14 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+/**
+ * on [增加事件监听器]
+ * @param  {[Object]} ele = document [事件监听元素]
+ * @param  {[String]} event [事件类型]
+ * @param  {[Function]} handler [监听回调]
+ * @param  {[Boolean]} propagation = false [是否冒泡传递]
+ * @return {[Object]} null
+ */
+
+var on = function on() {
+    var ele = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : document;
+    var event = arguments[1];
+    var handler = arguments[2];
+    var propagation = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
+
+    if (ele.addEventListener) {
+        ele.addEventListener(event, handler, propagation);
+    } else {
+        ele.attachEvent("on" + event, handler);
+    }
+};
+
+exports.default = on;
+
+/***/ }),
+/* 15 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+/**
+ * off [移出事件监听器]
+ * @param  {[Object]} ele = document [事件监听元素]
+ * @param  {[String]} event [事件类型]
+ * @param  {[Function]} handler [监听回调]
+ * @param  {[Boolean]} propagation = false [是否冒泡传递]
+ * @return {[Object]} null
+ */
+
+var off = function off() {
+    var ele = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : document;
+    var event = arguments[1];
+    var handler = arguments[2];
+    var propagation = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
+
+    if (ele.removeEventListener) {
+        ele.removeEventListener(event, handler, propagation);
+    } else {
+        ele.detachEvent("on" + event, handler);
+    }
+};
+
+exports.default = off;
+
+/***/ }),
+/* 16 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var req = __webpack_require__(17);
 req.keys().forEach(function (mod) {
     var v = req(mod);
     if (v && v.default) {
@@ -583,7 +694,7 @@ req.keys().forEach(function (mod) {
 module.exports = __webpack_require__(8);
 
 /***/ }),
-/* 14 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
@@ -598,6 +709,9 @@ var map = {
 	"./isEmpty.js": 9,
 	"./isNumber.js": 2,
 	"./numRound.js": 12,
+	"./off.js": 15,
+	"./on.js": 14,
+	"./setScrollTop.js": 13,
 	"./sliceArray.js": 11,
 	"./throttle.js": 10
 };
@@ -615,7 +729,7 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = 14;
+webpackContext.id = 17;
 
 /***/ })
 /******/ ]);

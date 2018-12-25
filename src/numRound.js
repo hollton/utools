@@ -7,7 +7,7 @@
 
 import isNumber from './isNumber';
 
-let numRound = (num, bit = 2)=>{
+let numRound = (num = 0, bit = 2)=>{
     if(!isNumber(num)){
         return num;
     }

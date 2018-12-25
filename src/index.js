@@ -10,6 +10,9 @@ import throttle from './throttle';
 import sliceArray from './sliceArray';
 import isNumber from './isNumber';
 import numRound from './numRound';
+import setScrollTop from './setScrollTop';
+import on from './on';
+import off from './off';
 
 export {
     find,
@@ -23,5 +26,8 @@ export {
     throttle,
     sliceArray,
     isNumber,
-    numRound
+    numRound,
+    setScrollTop,
+    on,
+    off
 };

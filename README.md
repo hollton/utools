@@ -3,7 +3,7 @@
 [![LICENSE MIT](https://img.shields.io/npm/l/es-utools.svg)](https://www.npmjs.com/package/es-utools) 
 
 前端工具库
-> 开发过程中的自用函数封装整理。
+> 开发过程中的自用函数封装整理
 
 ## 安装
 
@@ -42,40 +42,17 @@ utools.find();
 <!-- TOC -->
 
 - [find(array, obj)](#findarray-obj)
-    - [params](#params)
-    - [return](#return)
 - [findIndex(array, obj)](#findindexarray-obj)
-    - [params](#params-1)
-    - [return](#return-1)
 - [clone(obj)](#cloneobj)
-    - [params](#params-2)
-    - [return](#return-2)
 - [deepClone(obj)](#deepcloneobj)
-    - [params](#params-3)
-    - [return](#return-3)
 - [getUrlParams(url)](#geturlparamsurl)
-    - [params](#params-4)
-    - [return](#return-4)
 - [asyncLoop(array, asyncFn, doneFn)](#asynclooparray-asyncfn-donefn)
-    - [params](#params-5)
 - [isEmpty(obj)](#isemptyobj)
-    - [params](#params-6)
-    - [return](#return-5)
 - [debounce(func, delay)](#debouncefunc-delay)
-    - [params](#params-7)
-    - [return](#return-6)
 - [throttle(func, delay)](#throttlefunc-delay)
-    - [params](#params-8)
-    - [return](#return-7)
 - [sliceArray(array, step)](#slicearrayarray-step)
-    - [params](#params-9)
-    - [return](#return-8)
 - [isNumber(obj)](#isnumberobj)
-    - [params](#params-10)
-    - [return](#return-9)
 - [numRound(num, bit = 2)](#numroundnum-bit--2)
-    - [params](#params-11)
-    - [return](#return-10)
 
 <!-- /TOC -->
 
@@ -235,4 +212,43 @@ utools.numRound(3.1415);
 // 3.14
 utools.numRound(3.1415, 3);
 // 3.142
+```
+
+### setScrollTop(top, ele)
+设置滚动条距顶部距离
+#### params
+* top: 距顶部距离，默认0
+* ele: 指定滚动条元素，默认document.documentElement
+#### return
+* top: 设定值
+
+```
+utools.setScrollTop(100);
+```
+
+### on(ele, event, handler, propagation)
+增加事件监听器
+#### params
+* ele: 事件监听元素，默认document
+* event: 必须，事件类型
+* handler: 监听回调
+* propagation: 是否冒泡传递，默认false
+
+```
+const handler = function(){
+    console.log('handler click');
+};
+utools.on(document, 'click', handler, false);
+```
+
+### off(ele, event, handler, propagation)
+移出事件监听器
+#### params
+* ele: 事件监听元素，默认document
+* event: 必须，事件类型
+* handler: 监听回调
+* propagation: 是否冒泡传递，默认false
+
+```
+utools.off(document, 'click', handler, false);
 ```

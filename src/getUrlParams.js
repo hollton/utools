@@ -1,13 +1,13 @@
 /**
- * getUrlParams [获取url参数，默认取当前路由参数]
+ * getUrlParams [获取url参数对象，默认window.location.href]
  * @param  {[String]} url [含参数url]
  * @return {[Object]} params [参数对象]
  */
 
 let getUrlParams = (url) => {
-  const hash = url || window.location.hash;
+  url = url || window.location.href;
   const params = {};
-  const search = hash.substr(hash.indexOf('?') + 1);
+  const search = url.substr(url.indexOf('?') + 1);
   let splitIndex;
   if (search) {
     search.split('&').forEach(item => {

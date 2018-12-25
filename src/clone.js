@@ -6,21 +6,21 @@
  */
 
 let clone = (obj,deepFlag)=>{
-    var newObj = obj.constructor === Array ? [] : {};
-    if(typeof obj !== 'object'){
-        return obj;
-    } else {
+    if(obj && typeof obj === 'object') {
+        let newObj = obj.constructor === Array ? [] : {};
         for(let i in obj){
             if(obj.hasOwnProperty(i)){
                 if(deepFlag){
-                    newObj[i] = clone(obj[i], deepFlag);
+                    newObj[i] = clone(obj[i],deepFlag);
                 } else {
                     newObj[i] = obj[i];
                 }
             }
         }
+        return newObj;
+    } else {
+        return obj;
     }
-    return newObj;
 };
 
 export default clone;
