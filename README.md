@@ -114,7 +114,7 @@ console.log(b.data === _b.data);
 ### getUrlParams(url)
 返回url参数对象
 #### params
-* url：非必须，参数url，默认为当前路由参数
+* url：非必须，参数url，默认为window.location.href
 #### return
 * urlParams: 参数对象
 
@@ -203,10 +203,10 @@ utools.isNumber('2');
 // false
 ```
 
-### numRound(num, bit = 2)
+### numRound(num = 0, bit = 2)
 数值指定位数四舍五入
 #### params
-* num: 必须，源数据
+* num: 源数据，默认赋值0
 * bit: 保留位数，默认2
 #### return
 * roundNum: 四舍五入后数值
