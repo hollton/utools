@@ -50,12 +50,13 @@ utools.find();
 - [isEmpty(obj)](#isemptyobj)
 - [debounce(func, delay)](#debouncefunc-delay)
 - [throttle(func, delay)](#throttlefunc-delay)
-- [sliceArray(array, step)](#slicearrayarray-step)
+- [sliceArray -> chunk(data, step)](#slicearray---chunkdata-step)
 - [isNumber(obj)](#isnumberobj)
-- [numRound(num = 0, bit = 2)](#numroundnum--0-bit--2)
+- [numRound(num, bit = 2)](#numroundnum-bit--2)
 - [setScrollTop(top, ele)](#setscrolltoptop-ele)
 - [on(ele, event, handler, propagation)](#onele-event-handler-propagation)
 - [off(ele, event, handler, propagation)](#offele-event-handler-propagation)
+- [uniq(data, key)](#uniqdata-key)
 
 <!-- /TOC -->
 
@@ -113,7 +114,7 @@ console.log(b.data === _b.data);
 ### getUrlParams(url)
 返回url参数对象
 #### params
-* url：非必须，参数url，默认为window.location.href
+* url：非必须，参数url，默认为当前路由参数
 #### return
 * urlParams: 参数对象
 
@@ -175,16 +176,16 @@ window.onresize = utools.debounce(myFunc, 100);
 window.onresize = utools.throttle(myFunc, 100);
 ```
 
-### sliceArray(array, step)
+### sliceArray -> chunk(data, step)
 将数组根据指定数分割成多个数组
 #### params
-* array: 必须，待切分数组
+* data: 必须，待切分数组
 * step: 切分间隔，默认20
 #### return
-* slicedArray: 已切分包裹数组
+* slicedData: 包含拆分区块的新数组，为二维数组
 
 ```
-utools.sliceArray([1,2,3], 2);
+utools.chunk([1,2,3], 2);
 // [[1,2],[3]]
 ```
 
@@ -202,10 +203,10 @@ utools.isNumber('2');
 // false
 ```
 
-### numRound(num = 0, bit = 2)
+### numRound(num, bit = 2)
 数值指定位数四舍五入
 #### params
-* num: 源数据，默认赋值0
+* num: 必须，源数据
 * bit: 保留位数，默认2
 #### return
 * roundNum: 四舍五入后数值
@@ -254,4 +255,19 @@ utools.on(document, 'click', handler, false);
 
 ```
 utools.off(document, 'click', handler, false);
+```
+
+### uniq(data, key)
+数组去重
+#### params
+* data: 源数据，默认[]
+* key: 重复判断标准，非必须，未传以数组每项做为判断key
+#### return
+* uniqData: 去重数据
+
+```
+utools.uniq([1,2,3,2]);
+// [1,2,3]
+utools.uniq([{id: 1, name: '1'}, {id: 2, name: '2'}, {id: 1, name: '_1'}], 'id');
+// [{id: 1, name: '1'}, {id: 2, name: '2'}]
 ```

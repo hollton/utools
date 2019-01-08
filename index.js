@@ -70,7 +70,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 16);
+/******/ 	return __webpack_require__(__webpack_require__.s = 17);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -227,6 +227,36 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 /**
+ * chunk [将数组根据指定数分割成多个数组]
+ * @param  {[Array]} data [待切分数组]
+ * @param  {[Number]} step = 20 [切分间隔，默认20]
+ * @return {[Array]}  slicedData [已切分包裹数组]
+ */
+
+var chunk = function chunk() {
+    var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+    var step = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 20;
+
+    var slicedData = [];
+    for (var i = 0; i < data.length; i += step) {
+        slicedData.push(data.slice(i, i + step));
+    }
+    return slicedData;
+};
+
+exports.default = chunk;
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+/**
  * debounce [函数去抖：N ms内不再被触发时即执行一次]
  * @param  {[Function]} func [执行函数]
  * @param  {[Number]} delay [执行间隔，单位毫秒（ms）]
@@ -254,7 +284,7 @@ var debounce = function debounce(func, delay) {
 exports.default = debounce;
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -281,7 +311,7 @@ var deepClone = function deepClone(obj) {
 exports.default = deepClone;
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -309,7 +339,7 @@ var findIndex = function findIndex(arrayData, keyItem) {
 exports.default = findIndex;
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -353,7 +383,7 @@ var getUrlParams = function getUrlParams(url) {
 exports.default = getUrlParams;
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -362,17 +392,17 @@ exports.default = getUrlParams;
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.off = exports.on = exports.setScrollTop = exports.numRound = exports.isNumber = exports.sliceArray = exports.throttle = exports.debounce = exports.asyncLoop = exports.getUrlParams = exports.deepClone = exports.clone = exports.isEmpty = exports.findIndex = exports.find = undefined;
+exports.uniq = exports.off = exports.on = exports.setScrollTop = exports.numRound = exports.isNumber = exports.sliceArray = exports.chunk = exports.throttle = exports.debounce = exports.asyncLoop = exports.getUrlParams = exports.deepClone = exports.clone = exports.isEmpty = exports.findIndex = exports.find = undefined;
 
 var _find = __webpack_require__(1);
 
 var _find2 = _interopRequireDefault(_find);
 
-var _findIndex = __webpack_require__(6);
+var _findIndex = __webpack_require__(7);
 
 var _findIndex2 = _interopRequireDefault(_findIndex);
 
-var _isEmpty = __webpack_require__(9);
+var _isEmpty = __webpack_require__(10);
 
 var _isEmpty2 = _interopRequireDefault(_isEmpty);
 
@@ -380,11 +410,11 @@ var _clone = __webpack_require__(0);
 
 var _clone2 = _interopRequireDefault(_clone);
 
-var _deepClone = __webpack_require__(5);
+var _deepClone = __webpack_require__(6);
 
 var _deepClone2 = _interopRequireDefault(_deepClone);
 
-var _getUrlParams = __webpack_require__(7);
+var _getUrlParams = __webpack_require__(8);
 
 var _getUrlParams2 = _interopRequireDefault(_getUrlParams);
 
@@ -392,17 +422,17 @@ var _asyncLoop = __webpack_require__(3);
 
 var _asyncLoop2 = _interopRequireDefault(_asyncLoop);
 
-var _debounce = __webpack_require__(4);
+var _debounce = __webpack_require__(5);
 
 var _debounce2 = _interopRequireDefault(_debounce);
 
-var _throttle = __webpack_require__(10);
+var _throttle = __webpack_require__(11);
 
 var _throttle2 = _interopRequireDefault(_throttle);
 
-var _sliceArray = __webpack_require__(11);
+var _chunk = __webpack_require__(4);
 
-var _sliceArray2 = _interopRequireDefault(_sliceArray);
+var _chunk2 = _interopRequireDefault(_chunk);
 
 var _isNumber = __webpack_require__(2);
 
@@ -424,6 +454,10 @@ var _off = __webpack_require__(15);
 
 var _off2 = _interopRequireDefault(_off);
 
+var _uniq = __webpack_require__(16);
+
+var _uniq2 = _interopRequireDefault(_uniq);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.find = _find2.default;
@@ -435,15 +469,17 @@ exports.getUrlParams = _getUrlParams2.default;
 exports.asyncLoop = _asyncLoop2.default;
 exports.debounce = _debounce2.default;
 exports.throttle = _throttle2.default;
-exports.sliceArray = _sliceArray2.default;
+exports.chunk = _chunk2.default;
+exports.sliceArray = _chunk2.default;
 exports.isNumber = _isNumber2.default;
 exports.numRound = _numRound2.default;
 exports.setScrollTop = _setScrollTop2.default;
 exports.on = _on2.default;
 exports.off = _off2.default;
+exports.uniq = _uniq2.default;
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -470,7 +506,7 @@ var isEmpty = function isEmpty(obj) {
 exports.default = isEmpty;
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -515,36 +551,6 @@ var throttle = function throttle(func, delay) {
 };
 
 exports.default = throttle;
-
-/***/ }),
-/* 11 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-/**
- * sliceArray [将数组根据指定数分割成多个数组]
- * @param  {[Array]} arrayData [待切分数组]
- * @param  {[Number]} step = 20 [切分间隔，默认20]
- * @return {[Array]}  slicedArray [已切分包裹数组]
- */
-
-var sliceArray = function sliceArray(arrayData) {
-    var step = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 20;
-
-    arrayData = arrayData || [];
-    var slicedArray = [];
-    for (var i = 0; i < arrayData.length; i += step) {
-        slicedArray.push(arrayData.slice(i, i + step));
-    }
-    return slicedArray;
-};
-
-exports.default = sliceArray;
 
 /***/ }),
 /* 12 */
@@ -683,7 +689,39 @@ exports.default = off;
 "use strict";
 
 
-var req = __webpack_require__(17);
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+/**
+ * uniq [数组去重]
+ * @param  {[Array]} data [源数据]
+ * @param  {[String]} key [重复判断标准，非必须，未传以数组每项做为判断key]
+ * @return {[Array]}  uniqData [去重数据]
+ */
+
+var uniq = function uniq() {
+    var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+    var key = arguments[1];
+
+    var obj = {},
+        useKey;
+    return data.reduce(function (prev, curr) {
+        useKey = JSON.stringify(key ? curr[key] : curr);
+        !obj[useKey] && (obj[useKey] = true && prev.push(curr));
+        return prev;
+    }, []);
+};
+
+exports.default = uniq;
+
+/***/ }),
+/* 17 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var req = __webpack_require__(18);
 req.keys().forEach(function (mod) {
     var v = req(mod);
     if (v && v.default) {
@@ -691,29 +729,30 @@ req.keys().forEach(function (mod) {
     }
 });
 
-module.exports = __webpack_require__(8);
+module.exports = __webpack_require__(9);
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
 	"./asyncLoop.js": 3,
+	"./chunk.js": 4,
 	"./clone.js": 0,
-	"./debounce.js": 4,
-	"./deepClone.js": 5,
+	"./debounce.js": 5,
+	"./deepClone.js": 6,
 	"./find.js": 1,
-	"./findIndex.js": 6,
-	"./getUrlParams.js": 7,
-	"./index.js": 8,
-	"./isEmpty.js": 9,
+	"./findIndex.js": 7,
+	"./getUrlParams.js": 8,
+	"./index.js": 9,
+	"./isEmpty.js": 10,
 	"./isNumber.js": 2,
 	"./numRound.js": 12,
 	"./off.js": 15,
 	"./on.js": 14,
 	"./setScrollTop.js": 13,
-	"./sliceArray.js": 11,
-	"./throttle.js": 10
+	"./throttle.js": 11,
+	"./uniq.js": 16
 };
 function webpackContext(req) {
 	return __webpack_require__(webpackContextResolve(req));
@@ -729,7 +768,7 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = 17;
+webpackContext.id = 18;
 
 /***/ })
 /******/ ]);

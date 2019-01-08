@@ -5,6 +5,10 @@ toc: false
 timeline: true
 ---
 
+## 1.1.2
+- sliceArray 更名为 chunk
+- 新增uniq
+
 ## 1.1.1
 - setScrollTop && on && off
 - 增加 CHANGELOG.md

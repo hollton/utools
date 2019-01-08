@@ -7,12 +7,14 @@ import getUrlParams from './getUrlParams';
 import asyncLoop from './asyncLoop';
 import debounce from './debounce';
 import throttle from './throttle';
-import sliceArray from './sliceArray';
+import chunk from './chunk';
+import sliceArray from './chunk';
 import isNumber from './isNumber';
 import numRound from './numRound';
 import setScrollTop from './setScrollTop';
 import on from './on';
 import off from './off';
+import uniq from './uniq';
 
 export {
     find,
@@ -24,10 +26,12 @@ export {
     asyncLoop,
     debounce,
     throttle,
+    chunk,
     sliceArray,
     isNumber,
     numRound,
     setScrollTop,
     on,
-    off
+    off,
+    uniq
 };
