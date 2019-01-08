@@ -52,7 +52,7 @@ utools.find();
 - [throttle(func, delay)](#throttlefunc-delay)
 - [sliceArray -> chunk(data, step)](#slicearray---chunkdata-step)
 - [isNumber(obj)](#isnumberobj)
-- [numRound(num, bit = 2)](#numroundnum-bit--2)
+- [numRound(num = 0, bit = 2)](#numroundnum--0-bit--2)
 - [setScrollTop(top, ele)](#setscrolltoptop-ele)
 - [on(ele, event, handler, propagation)](#onele-event-handler-propagation)
 - [off(ele, event, handler, propagation)](#offele-event-handler-propagation)
