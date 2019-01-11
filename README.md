@@ -52,7 +52,7 @@ utools.find();
 - [throttle(func, delay)](#throttlefunc-delay)
 - [sliceArray -> chunk(data, step)](#slicearray---chunkdata-step)
 - [isNumber(obj)](#isnumberobj)
-- [numRound(num = 0, bit = 2)](#numroundnum--0-bit--2)
+- [numRound(num = 0, bit = 2, zeroize)](#numroundnum--0-bit--2-zeroize)
 - [setScrollTop(top, ele)](#setscrolltoptop-ele)
 - [on(ele, event, handler, propagation)](#onele-event-handler-propagation)
 - [off(ele, event, handler, propagation)](#offele-event-handler-propagation)
@@ -203,11 +203,12 @@ utools.isNumber('2');
 // false
 ```
 
-### numRound(num = 0, bit = 2)
+### numRound(num = 0, bit = 2, zeroize)
 数值指定位数四舍五入
 #### params
 * num: 源数据，默认赋值0
 * bit: 保留位数，默认2
+* zeroize: 位数不足时是否填零
 #### return
 * roundNum: 四舍五入后数值
 
@@ -216,6 +217,8 @@ utools.numRound(3.1415);
 // 3.14
 utools.numRound(3.1415, 3);
 // 3.142
+utools.numRound(3.1, 3, true);
+// 3.100
 ```
 
 ### setScrollTop(top, ele)

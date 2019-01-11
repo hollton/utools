@@ -5,6 +5,9 @@ toc: false
 timeline: true
 ---
 
+## 1.1.3
+- numRound 增加 zeroize 参数，指定位数不足时是否填零
+
 ## 1.1.2
 - sliceArray 更名为 chunk
 - 新增uniq

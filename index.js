@@ -572,16 +572,36 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var numRound = function numRound() {
     var num = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
     var bit = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 2;
+    var zeroize = arguments[2];
 
     if (!(0, _isNumber2.default)(num)) {
         return num;
     }
+
     var bitPercent = Math.pow(10, bit);
-    return Math.round(num * bitPercent) / bitPercent;
+    var roundNum = Math.round(num * bitPercent) / bitPercent;
+
+    if (zeroize) {
+        var dot = '.';
+        roundNum += '';
+        if (roundNum.indexOf(dot) < 0) {
+            roundNum += dot;
+        }
+        var numData = roundNum.split(dot);
+        var integerPart = numData[0];
+        var decimalPart = numData[1];
+        while (decimalPart.length < bit) {
+            decimalPart += '0';
+        }
+        return '' + integerPart + dot + decimalPart;
+    }
+
+    return roundNum;
 }; /**
     * numRound [数值指定位数四舍五入]
     * @param  {[Number]} num [源数据]
     * @param  {[Number]} bit = 2 [保留位数，默认2]
+    * @param  {[Boolean]} zeroize [位数不足时是否填零]
     * @return {[Number]} roundNum [四舍五入后数值]
     */
 
