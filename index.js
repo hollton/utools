@@ -70,7 +70,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 17);
+/******/ 	return __webpack_require__(__webpack_require__.s = 18);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -192,6 +192,39 @@ exports.default = isNumber;
 
 
 Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+var _arguments = arguments;
+/**
+ * aopDecorator [AOP装饰函数]
+ * @param  {[Function]} oriFunc [原函数，即被装饰函数]
+ * @param  {[Function]} aopFunc [装饰执行函数]
+ * @param  {[Boolean]} isPre [是否前置装置，为true时先执行装饰函数，再执行原函数，否则反之]
+ * @return {[Function]} 已被装饰的函数
+ */
+
+var aopDecorator = function aopDecorator(oriFunc, aopFunc, isPre) {
+    var applyFunc = function applyFunc(func) {
+        func && func.apply(undefined, _arguments);
+    };
+    return function () {
+        isPre && applyFunc(aopFunc);
+        var ret = applyFunc(oriFunc);
+        !isPre && applyFunc(aopFunc);
+        return ret;
+    };
+};
+
+exports.default = aopDecorator;
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
   value: true
 });
 /**
@@ -217,7 +250,7 @@ var asyncLoop = function asyncLoop(arrData, asyncFn, doneFn) {
 exports.default = asyncLoop;
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -247,7 +280,7 @@ var chunk = function chunk() {
 exports.default = chunk;
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -284,7 +317,7 @@ var debounce = function debounce(func, delay) {
 exports.default = debounce;
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -311,7 +344,7 @@ var deepClone = function deepClone(obj) {
 exports.default = deepClone;
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -339,7 +372,7 @@ var findIndex = function findIndex(arrayData, keyItem) {
 exports.default = findIndex;
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -383,7 +416,7 @@ var getUrlParams = function getUrlParams(url) {
 exports.default = getUrlParams;
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -392,17 +425,17 @@ exports.default = getUrlParams;
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.uniq = exports.off = exports.on = exports.setScrollTop = exports.numRound = exports.isNumber = exports.sliceArray = exports.chunk = exports.throttle = exports.debounce = exports.asyncLoop = exports.getUrlParams = exports.deepClone = exports.clone = exports.isEmpty = exports.findIndex = exports.find = undefined;
+exports.aopDecorator = exports.uniq = exports.off = exports.on = exports.setScrollTop = exports.numRound = exports.isNumber = exports.sliceArray = exports.chunk = exports.throttle = exports.debounce = exports.asyncLoop = exports.getUrlParams = exports.deepClone = exports.clone = exports.isEmpty = exports.findIndex = exports.find = undefined;
 
 var _find = __webpack_require__(1);
 
 var _find2 = _interopRequireDefault(_find);
 
-var _findIndex = __webpack_require__(7);
+var _findIndex = __webpack_require__(8);
 
 var _findIndex2 = _interopRequireDefault(_findIndex);
 
-var _isEmpty = __webpack_require__(10);
+var _isEmpty = __webpack_require__(11);
 
 var _isEmpty2 = _interopRequireDefault(_isEmpty);
 
@@ -410,27 +443,27 @@ var _clone = __webpack_require__(0);
 
 var _clone2 = _interopRequireDefault(_clone);
 
-var _deepClone = __webpack_require__(6);
+var _deepClone = __webpack_require__(7);
 
 var _deepClone2 = _interopRequireDefault(_deepClone);
 
-var _getUrlParams = __webpack_require__(8);
+var _getUrlParams = __webpack_require__(9);
 
 var _getUrlParams2 = _interopRequireDefault(_getUrlParams);
 
-var _asyncLoop = __webpack_require__(3);
+var _asyncLoop = __webpack_require__(4);
 
 var _asyncLoop2 = _interopRequireDefault(_asyncLoop);
 
-var _debounce = __webpack_require__(5);
+var _debounce = __webpack_require__(6);
 
 var _debounce2 = _interopRequireDefault(_debounce);
 
-var _throttle = __webpack_require__(11);
+var _throttle = __webpack_require__(12);
 
 var _throttle2 = _interopRequireDefault(_throttle);
 
-var _chunk = __webpack_require__(4);
+var _chunk = __webpack_require__(5);
 
 var _chunk2 = _interopRequireDefault(_chunk);
 
@@ -438,25 +471,29 @@ var _isNumber = __webpack_require__(2);
 
 var _isNumber2 = _interopRequireDefault(_isNumber);
 
-var _numRound = __webpack_require__(12);
+var _numRound = __webpack_require__(13);
 
 var _numRound2 = _interopRequireDefault(_numRound);
 
-var _setScrollTop = __webpack_require__(13);
+var _setScrollTop = __webpack_require__(14);
 
 var _setScrollTop2 = _interopRequireDefault(_setScrollTop);
 
-var _on = __webpack_require__(14);
+var _on = __webpack_require__(15);
 
 var _on2 = _interopRequireDefault(_on);
 
-var _off = __webpack_require__(15);
+var _off = __webpack_require__(16);
 
 var _off2 = _interopRequireDefault(_off);
 
-var _uniq = __webpack_require__(16);
+var _uniq = __webpack_require__(17);
 
 var _uniq2 = _interopRequireDefault(_uniq);
+
+var _aopDecorator = __webpack_require__(3);
+
+var _aopDecorator2 = _interopRequireDefault(_aopDecorator);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -477,9 +514,10 @@ exports.setScrollTop = _setScrollTop2.default;
 exports.on = _on2.default;
 exports.off = _off2.default;
 exports.uniq = _uniq2.default;
+exports.aopDecorator = _aopDecorator2.default;
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -506,7 +544,7 @@ var isEmpty = function isEmpty(obj) {
 exports.default = isEmpty;
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -553,7 +591,7 @@ var throttle = function throttle(func, delay) {
 exports.default = throttle;
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -601,14 +639,14 @@ var numRound = function numRound() {
     * numRound [数值指定位数四舍五入]
     * @param  {[Number]} num [源数据]
     * @param  {[Number]} bit = 2 [保留位数，默认2]
-    * @param  {[Boolean]} zeroize [位数不足时是否填零]
+    * @param  {[Boolean]} zeroize [位数不足时是否填零，注为true时返回的数据类型为 String]
     * @return {[Number]} roundNum [四舍五入后数值]
     */
 
 exports.default = numRound;
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -635,7 +673,7 @@ var setScrollTop = function setScrollTop() {
 exports.default = setScrollTop;
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -669,7 +707,7 @@ var on = function on() {
 exports.default = on;
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -703,7 +741,7 @@ var off = function off() {
 exports.default = off;
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -735,13 +773,13 @@ var uniq = function uniq() {
 exports.default = uniq;
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var req = __webpack_require__(18);
+var req = __webpack_require__(19);
 req.keys().forEach(function (mod) {
     var v = req(mod);
     if (v && v.default) {
@@ -749,30 +787,31 @@ req.keys().forEach(function (mod) {
     }
 });
 
-module.exports = __webpack_require__(9);
+module.exports = __webpack_require__(10);
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
-	"./asyncLoop.js": 3,
-	"./chunk.js": 4,
+	"./aopDecorator.js": 3,
+	"./asyncLoop.js": 4,
+	"./chunk.js": 5,
 	"./clone.js": 0,
-	"./debounce.js": 5,
-	"./deepClone.js": 6,
+	"./debounce.js": 6,
+	"./deepClone.js": 7,
 	"./find.js": 1,
-	"./findIndex.js": 7,
-	"./getUrlParams.js": 8,
-	"./index.js": 9,
-	"./isEmpty.js": 10,
+	"./findIndex.js": 8,
+	"./getUrlParams.js": 9,
+	"./index.js": 10,
+	"./isEmpty.js": 11,
 	"./isNumber.js": 2,
-	"./numRound.js": 12,
-	"./off.js": 15,
-	"./on.js": 14,
-	"./setScrollTop.js": 13,
-	"./throttle.js": 11,
-	"./uniq.js": 16
+	"./numRound.js": 13,
+	"./off.js": 16,
+	"./on.js": 15,
+	"./setScrollTop.js": 14,
+	"./throttle.js": 12,
+	"./uniq.js": 17
 };
 function webpackContext(req) {
 	return __webpack_require__(webpackContextResolve(req));
@@ -788,7 +827,7 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = 18;
+webpackContext.id = 19;
 
 /***/ })
 /******/ ]);

@@ -57,6 +57,7 @@ utools.find();
 - [on(ele, event, handler, propagation)](#onele-event-handler-propagation)
 - [off(ele, event, handler, propagation)](#offele-event-handler-propagation)
 - [uniq(data, key)](#uniqdata-key)
+- [aopDecorator(oriFunc, aopFunc, isPre)](#aopDecoratororiFunc-aopFunc-isPre)
 
 <!-- /TOC -->
 
@@ -208,7 +209,7 @@ utools.isNumber('2');
 #### params
 * num: 源数据，默认赋值0
 * bit: 保留位数，默认2
-* zeroize: 位数不足时是否填零
+* zeroize: 位数不足时是否填零，注为true时返回的数据类型为 String
 #### return
 * roundNum: 四舍五入后数值
 
@@ -217,8 +218,9 @@ utools.numRound(3.1415);
 // 3.14
 utools.numRound(3.1415, 3);
 // 3.142
-utools.numRound(3.1, 3, true);
-// 3.100
+const numZeroize = utools.numRound(3.1, 3, true);
+typeof numZeroize
+// '3.100'、"string"
 ```
 
 ### setScrollTop(top, ele)
@@ -273,4 +275,26 @@ utools.uniq([1,2,3,2]);
 // [1,2,3]
 utools.uniq([{id: 1, name: '1'}, {id: 2, name: '2'}, {id: 1, name: '_1'}], 'id');
 // [{id: 1, name: '1'}, {id: 2, name: '2'}]
+```
+
+### aopDecorator(oriFunc, aopFunc, isPre)
+AOP装饰函数
+#### params
+* oriFunc: 原函数，即被装饰函数
+* aopFunc: 装饰执行函数
+* isPre: 是否前置装置，为true时先执行装饰函数，再执行原函数，否则反之
+#### return
+* aopDecoratorFunc: 已被装饰的函数
+
+```
+const oriFunc = () => console.log('oriFunc');
+const aopFunc = () => console.log('aopFunc');
+
+const afterDecorator = utools.aopDecorator(oriFunc, aopFunc);
+afterDecorator();
+// 'oriFunc'、'aopFunc'
+
+const preDecorator = utools.aopDecorator(oriFunc, aopFunc, true);
+preDecorator();
+// 'aopFunc'、'oriFunc'
 ```

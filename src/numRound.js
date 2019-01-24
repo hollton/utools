@@ -2,7 +2,7 @@
  * numRound [数值指定位数四舍五入]
  * @param  {[Number]} num [源数据]
  * @param  {[Number]} bit = 2 [保留位数，默认2]
- * @param  {[Boolean]} zeroize [位数不足时是否填零]
+ * @param  {[Boolean]} zeroize [位数不足时是否填零，注为true时返回的数据类型为 String]
  * @return {[Number]} roundNum [四舍五入后数值]
  */
 

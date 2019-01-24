@@ -15,6 +15,7 @@ import setScrollTop from './setScrollTop';
 import on from './on';
 import off from './off';
 import uniq from './uniq';
+import aopDecorator from './aopDecorator';
 
 export {
     find,
@@ -33,5 +34,6 @@ export {
     setScrollTop,
     on,
     off,
-    uniq
+    uniq,
+    aopDecorator
 };
