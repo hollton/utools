@@ -8,7 +8,7 @@ timeline: true
 ## 1.1.4
 
 `2019-01-24`
-- :sunny: 新增 `aopDecorator` AOP 装饰函数 []()
+- :sunny: 新增 `aopDecorator` AOP 装饰函数 [1a20d1](https://github.com/hollton/utools/commit/1a20d1eb8aeb0834dea421ac595d798a548e6abd#diff-0e41b5f7f42efde1c0665033e4be3b28)
 
 ## 1.1.3
 
