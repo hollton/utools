@@ -58,6 +58,8 @@ utools.find();
 - [off(ele, event, handler, propagation)](#offele-event-handler-propagation)
 - [uniq(data, key)](#uniqdata-key)
 - [aopDecorator(oriFunc, aopFunc, isPre)](#aopDecoratororiFunc-aopFunc-isPre)
+- [randomNum(maxNum, minNum = 0)](#randomNum-maxNum-minNum--0)
+- [shuffle(data)](#shuffle-data)
 
 <!-- /TOC -->
 
@@ -297,4 +299,31 @@ afterDecorator();
 const preDecorator = utools.aopDecorator(oriFunc, aopFunc, true);
 preDecorator();
 // 'aopFunc'、'oriFunc'
+```
+
+### randomNum(maxNum, minNum = 0)
+产生指定范围的随机整数，包含首尾数值
+#### params
+* maxNum: 必须，最大随机取值范围
+* minNum: 最小随机取值范围，默认0
+#### return
+* randomNum: 随机整数，[minNum, maxNum]
+
+```
+utools.randomNum(5);
+// [0, 5] 随机数
+utools.randomNum(5, 2);
+// [2, 5] 随机数
+```
+
+### shuffle(data)
+数组洗牌随机排序，返回新数组，不改变原数组
+#### params
+* data: 源数据
+#### return
+* shuffleData: 洗牌随机排序数据
+
+```
+utools.shuffle([1, 2, 3, 4]);
+// [4, 2, 1, 3] (随机)
 ```

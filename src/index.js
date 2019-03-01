@@ -16,6 +16,8 @@ import on from './on';
 import off from './off';
 import uniq from './uniq';
 import aopDecorator from './aopDecorator';
+import randomNum from './randomNum';
+import shuffle from './shuffle';
 
 export {
     find,
@@ -35,5 +37,7 @@ export {
     on,
     off,
     uniq,
-    aopDecorator
+    aopDecorator,
+    randomNum,
+    shuffle
 };

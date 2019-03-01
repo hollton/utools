@@ -5,6 +5,12 @@ toc: false
 timeline: true
 ---
 
+## 1.1.x
+
+`2019-01-26`
+- :sunny: 新增 `randomNum` 产生指定范围的随机整数 []()
+- :sunny: 新增 `shuffle` 数组洗牌随机排序 []()
+
 ## 1.1.4
 
 `2019-01-24`
