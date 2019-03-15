@@ -57,10 +57,10 @@ utools.find();
 - [on(ele, event, handler, propagation)](#onele-event-handler-propagation)
 - [off(ele, event, handler, propagation)](#offele-event-handler-propagation)
 - [uniq(data, key)](#uniqdata-key)
-- [aopDecorator(oriFunc, aopFunc, isPre)](#aopDecoratororiFunc-aopFunc-isPre)
-- [randomNum(maxNum, minNum = 0)](#randomNum-maxNum-minNum--0)
-- [shuffle(data)](#shuffle-data)
-- [ellipsis(options)](#ellipsis-options)
+- [aopDecorator(oriFunc, aopFunc, isPre)](#aopdecoratororifunc-aopfunc-ispre)
+- [randomNum(maxNum, minNum = 0)](#randomnummaxnum-minnum--0)
+- [shuffle(data)](#shuffledata)
+- [ellipsis(options)](#ellipsisoptions)
 
 <!-- /TOC -->
 
@@ -332,13 +332,13 @@ utools.shuffle([1, 2, 3, 4]);
 ### ellipsis(options)
 限制文字添加省略号
 #### options
- *      target: null,限制文字的容器dom，需未设置height
- *      limitLine: 1,限制行数
- *      lineHeight: 20,文字行高
- *      showTitle: true,title显示全部内容
- *      symbol: '...',超出追加的内容
- *      charLimit: false,根据字符的长度限制
- *      charLength: 10, 最大字符长度，charLimit=true有效
+* target: null,限制文字的容器dom，需未设置height
+* limitLine: 1,限制行数
+* lineHeight: 20,文字行高
+* showTitle: true,title显示全部内容
+* symbol: '...',超出追加的内容
+* charLimit: false,根据字符的长度限制
+* charLength: 10, 最大字符长度，charLimit=true有效
 
 ```
 <div id="text" style="width:200px">文字超出2行，添加省略显示</div>
