@@ -60,6 +60,7 @@ utools.find();
 - [aopDecorator(oriFunc, aopFunc, isPre)](#aopDecoratororiFunc-aopFunc-isPre)
 - [randomNum(maxNum, minNum = 0)](#randomNum-maxNum-minNum--0)
 - [shuffle(data)](#shuffle-data)
+- [ellipsis(options)](#ellipsis-options)
 
 <!-- /TOC -->
 
@@ -326,4 +327,24 @@ utools.randomNum(5, 2);
 ```
 utools.shuffle([1, 2, 3, 4]);
 // [4, 2, 1, 3] (随机)
+```
+
+### ellipsis(options)
+限制文字添加省略号
+#### options
+ *      target: null,限制文字的容器dom，需未设置height
+ *      limitLine: 1,限制行数
+ *      lineHeight: 20,文字行高
+ *      showTitle: true,title显示全部内容
+ *      symbol: '...',超出追加的内容
+ *      charLimit: false,根据字符的长度限制
+ *      charLength: 10, 最大字符长度，charLimit=true有效
+
+```
+<div id="text" style="width:200px">文字超出2行，添加省略显示</div>
+
+utools.ellipsis({
+    target: document.getElementById('text'),
+    limitLine: 2
+});
 ```

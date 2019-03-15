@@ -7,7 +7,7 @@
 		exports["utools"] = factory();
 	else
 		root["utools"] = factory();
-})(this, function() {
+})(typeof self !== 'undefined' ? self : this, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -70,7 +70,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 20);
+/******/ 	return __webpack_require__(__webpack_require__.s = 21);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -380,6 +380,89 @@ exports.default = deepClone;
 
 
 Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+/**
+ * ellipsis [限制文字添加省略号]
+ * @param  {[Object]} options {
+ *      target: null,限制文字的容器dom，需未设置height
+ *      limitLine: 1,限制行数
+ *      lineHeight: 20,文字行高
+ *      showTitle: true,title显示全部内容
+ *      symbol: '...',超出追加的内容
+ *      charLimit: false,根据字符的长度限制
+ *      charLength: 10, 最大字符长度，charLimit=true有效
+ * }
+ */
+
+var cfgOption = {
+    target: null,
+    limitLine: 1,
+    showTitle: true,
+    lineHeight: 20,
+    symbol: '...',
+    charLimit: false,
+    charLength: 10
+};
+
+var ellipsis = function ellipsis(options) {
+    Object.assign(cfgOption, options);
+    if (!cfgOption.target) {
+        return;
+    }
+    if (cfgOption.showTitle) {
+        cfgOption.target.setAttribute('title', _scope.getContent());
+    }
+    if (cfgOption.charLimit) {
+        _scope.compareChat();
+        return;
+    }
+    _scope.compareHeight();
+};
+
+var _scope = {
+    getContent: function getContent() {
+        return cfgOption.target.innerHTML;
+    },
+    setContent: function setContent(content) {
+        cfgOption.target.innerHTML = content;
+    },
+    deleteContent: function deleteContent() {
+        var content = _scope.getContent();
+        var curContent = content.substring(0, content.length - cfgOption.symbol.length - 1);
+        curContent += cfgOption.symbol;
+        _scope.setContent(curContent);
+        _scope.compareHeight();
+    },
+    getTargetHeight: function getTargetHeight() {
+        return cfgOption.target.clientHeight;
+    },
+    compareHeight: function compareHeight() {
+        var curHeight = _scope.getTargetHeight();
+        var lineHeight = cfgOption.limitLine * cfgOption.lineHeight;
+        if (curHeight > lineHeight) {
+            _scope.deleteContent();
+        }
+    },
+    compareChat: function compareChat() {
+        var content = _scope.getContent();
+        if (content.length > cfgOption.charLength) {
+            var curContent = content.substring(0, cfgOption.charLength);
+            _scope.setContent(curContent + cfgOption.symbol);
+        }
+    }
+};
+
+exports.default = ellipsis;
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
@@ -401,7 +484,7 @@ var findIndex = function findIndex(arrayData, keyItem) {
 exports.default = findIndex;
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -445,7 +528,7 @@ var getUrlParams = function getUrlParams(url) {
 exports.default = getUrlParams;
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -454,17 +537,17 @@ exports.default = getUrlParams;
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.shuffle = exports.randomNum = exports.aopDecorator = exports.uniq = exports.off = exports.on = exports.setScrollTop = exports.numRound = exports.isNumber = exports.sliceArray = exports.chunk = exports.throttle = exports.debounce = exports.asyncLoop = exports.getUrlParams = exports.deepClone = exports.clone = exports.isEmpty = exports.findIndex = exports.find = undefined;
+exports.ellipsis = exports.shuffle = exports.randomNum = exports.aopDecorator = exports.uniq = exports.off = exports.on = exports.setScrollTop = exports.numRound = exports.isNumber = exports.sliceArray = exports.chunk = exports.throttle = exports.debounce = exports.asyncLoop = exports.getUrlParams = exports.deepClone = exports.clone = exports.isEmpty = exports.findIndex = exports.find = undefined;
 
 var _find = __webpack_require__(1);
 
 var _find2 = _interopRequireDefault(_find);
 
-var _findIndex = __webpack_require__(9);
+var _findIndex = __webpack_require__(10);
 
 var _findIndex2 = _interopRequireDefault(_findIndex);
 
-var _isEmpty = __webpack_require__(12);
+var _isEmpty = __webpack_require__(13);
 
 var _isEmpty2 = _interopRequireDefault(_isEmpty);
 
@@ -476,7 +559,7 @@ var _deepClone = __webpack_require__(8);
 
 var _deepClone2 = _interopRequireDefault(_deepClone);
 
-var _getUrlParams = __webpack_require__(10);
+var _getUrlParams = __webpack_require__(11);
 
 var _getUrlParams2 = _interopRequireDefault(_getUrlParams);
 
@@ -488,7 +571,7 @@ var _debounce = __webpack_require__(7);
 
 var _debounce2 = _interopRequireDefault(_debounce);
 
-var _throttle = __webpack_require__(13);
+var _throttle = __webpack_require__(14);
 
 var _throttle2 = _interopRequireDefault(_throttle);
 
@@ -500,23 +583,23 @@ var _isNumber = __webpack_require__(2);
 
 var _isNumber2 = _interopRequireDefault(_isNumber);
 
-var _numRound = __webpack_require__(14);
+var _numRound = __webpack_require__(15);
 
 var _numRound2 = _interopRequireDefault(_numRound);
 
-var _setScrollTop = __webpack_require__(15);
+var _setScrollTop = __webpack_require__(16);
 
 var _setScrollTop2 = _interopRequireDefault(_setScrollTop);
 
-var _on = __webpack_require__(16);
+var _on = __webpack_require__(17);
 
 var _on2 = _interopRequireDefault(_on);
 
-var _off = __webpack_require__(17);
+var _off = __webpack_require__(18);
 
 var _off2 = _interopRequireDefault(_off);
 
-var _uniq = __webpack_require__(18);
+var _uniq = __webpack_require__(19);
 
 var _uniq2 = _interopRequireDefault(_uniq);
 
@@ -528,9 +611,13 @@ var _randomNum = __webpack_require__(3);
 
 var _randomNum2 = _interopRequireDefault(_randomNum);
 
-var _shuffle = __webpack_require__(19);
+var _shuffle = __webpack_require__(20);
 
 var _shuffle2 = _interopRequireDefault(_shuffle);
+
+var _ellipsis = __webpack_require__(9);
+
+var _ellipsis2 = _interopRequireDefault(_ellipsis);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -554,9 +641,10 @@ exports.uniq = _uniq2.default;
 exports.aopDecorator = _aopDecorator2.default;
 exports.randomNum = _randomNum2.default;
 exports.shuffle = _shuffle2.default;
+exports.ellipsis = _ellipsis2.default;
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -583,7 +671,7 @@ var isEmpty = function isEmpty(obj) {
 exports.default = isEmpty;
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -630,7 +718,7 @@ var throttle = function throttle(func, delay) {
 exports.default = throttle;
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -685,7 +773,7 @@ var numRound = function numRound() {
 exports.default = numRound;
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -712,7 +800,7 @@ var setScrollTop = function setScrollTop() {
 exports.default = setScrollTop;
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -746,7 +834,7 @@ var on = function on() {
 exports.default = on;
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -780,7 +868,7 @@ var off = function off() {
 exports.default = off;
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -812,7 +900,7 @@ var uniq = function uniq() {
 exports.default = uniq;
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -855,13 +943,13 @@ var shuffle = function shuffle() {
 exports.default = shuffle;
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var req = __webpack_require__(21);
+var req = __webpack_require__(22);
 req.keys().forEach(function (mod) {
     var v = req(mod);
     if (v && v.default) {
@@ -869,10 +957,10 @@ req.keys().forEach(function (mod) {
     }
 });
 
-module.exports = __webpack_require__(11);
+module.exports = __webpack_require__(12);
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
@@ -882,20 +970,21 @@ var map = {
 	"./clone.js": 0,
 	"./debounce.js": 7,
 	"./deepClone.js": 8,
+	"./ellipsis.js": 9,
 	"./find.js": 1,
-	"./findIndex.js": 9,
-	"./getUrlParams.js": 10,
-	"./index.js": 11,
-	"./isEmpty.js": 12,
+	"./findIndex.js": 10,
+	"./getUrlParams.js": 11,
+	"./index.js": 12,
+	"./isEmpty.js": 13,
 	"./isNumber.js": 2,
-	"./numRound.js": 14,
-	"./off.js": 17,
-	"./on.js": 16,
+	"./numRound.js": 15,
+	"./off.js": 18,
+	"./on.js": 17,
 	"./randomNum.js": 3,
-	"./setScrollTop.js": 15,
-	"./shuffle.js": 19,
-	"./throttle.js": 13,
-	"./uniq.js": 18
+	"./setScrollTop.js": 16,
+	"./shuffle.js": 20,
+	"./throttle.js": 14,
+	"./uniq.js": 19
 };
 function webpackContext(req) {
 	return __webpack_require__(webpackContextResolve(req));
@@ -911,7 +1000,7 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = 21;
+webpackContext.id = 22;
 
 /***/ })
 /******/ ]);

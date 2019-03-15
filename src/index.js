@@ -18,6 +18,7 @@ import uniq from './uniq';
 import aopDecorator from './aopDecorator';
 import randomNum from './randomNum';
 import shuffle from './shuffle';
+import ellipsis from './ellipsis';
 
 export {
     find,
@@ -39,5 +40,6 @@ export {
     uniq,
     aopDecorator,
     randomNum,
-    shuffle
+    shuffle,
+    ellipsis
 };
