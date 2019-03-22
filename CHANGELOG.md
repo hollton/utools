@@ -8,11 +8,11 @@ timeline: true
 ## 1.1.5
 
 `2019-03-15`
-- :sunny: 新增 `ellipsis` 限制文字添加省略号 []()
+- :sunny: 新增 `ellipsis` 限制文字添加省略号 [7bc51c](https://github.com/hollton/utools/commit/7bc51cfa48608133c82f3091fa80c94a84fd83ec)
 
 `2019-01-26`
-- :sunny: 新增 `randomNum` 产生指定范围的随机整数 []()
-- :sunny: 新增 `shuffle` 数组洗牌随机排序 []()
+- :sunny: 新增 `randomNum` 产生指定范围的随机整数 [1a0cdb](https://github.com/hollton/utools/commit/1a0cdb27d4ebfd8836679f3e82072f17ada3dcc9)
+- :sunny: 新增 `shuffle` 数组洗牌随机排序 [1a0cdb](https://github.com/hollton/utools/commit/1a0cdb27d4ebfd8836679f3e82072f17ada3dcc9)
 
 ## 1.1.4
 
