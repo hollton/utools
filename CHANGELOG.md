@@ -5,7 +5,7 @@ toc: false
 timeline: true
 ---
 
-## 1.1.x
+## 1.1.5
 
 `2019-03-15`
 - :sunny: 新增 `ellipsis` 限制文字添加省略号 []()
