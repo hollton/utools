@@ -30,7 +30,7 @@ let ellipsis = (options) => {
         cfgOption.target.setAttribute('title', _scope.getContent())
     }
     if (cfgOption.charLimit) {
-        _scope.compareChat()
+        _scope.compareChar()
         return;
     }
     _scope.compareHeight()
@@ -60,7 +60,7 @@ let _scope = {
             _scope.deleteContent()
         }
     },
-    compareChat: () => {
+    compareChar: () => {
         let content = _scope.getContent()
         if (content.length > cfgOption.charLength) {
             let curContent = content.substring(0, cfgOption.charLength);
