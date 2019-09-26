@@ -7,9 +7,10 @@
 let getUrlParams = (url) => {
   url = url || window.location.href;
   const params = {};
-  const search = url.substr(url.indexOf('?') + 1);
-  let splitIndex;
-  if (search) {
+  const searchIndex = url.indexOf('?')
+  if (searchIndex > -1) {
+    const search = url.substr(url.indexOf('?') + 1);
+    let splitIndex;
     search.split('&').forEach(item => {
       splitIndex = item.indexOf('=');
       if (splitIndex < 0) {
