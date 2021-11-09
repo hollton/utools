@@ -1,4 +1,4 @@
-# utools
+﻿# utools
 [![npm](https://img.shields.io/npm/v/es-utools.svg)](https://www.npmjs.com/package/es-utools) 
 [![LICENSE MIT](https://img.shields.io/npm/l/es-utools.svg)](https://www.npmjs.com/package/es-utools) 
 
@@ -61,6 +61,7 @@ utools.find();
 - [randomNum(maxNum, minNum = 0)](#randomnummaxnum-minnum--0)
 - [shuffle(data)](#shuffledata)
 - [ellipsis(options)](#ellipsisoptions)
+- [timeConvert(ms = 0, unit = 'days')](#timeconvertms--0-unit--days)
 
 <!-- /TOC -->
 
@@ -347,4 +348,28 @@ utools.ellipsis({
     target: document.getElementById('text'),
     limitLine: 2
 });
+```
+
+### timeConvert(ms = 0, unit = 'days')
+毫秒数转换为天、时、分、秒、毫秒
+#### params
+* ms: Number 毫秒数，默认 0
+* unit: String 最大转换单位，默认 'days'，可选值：'milliseconds'、'seconds'、'minutes'、'hours'、'days'
+#### return
+* result: Object 转换结果
+  *  milliseconds: Number, // 毫秒数
+  *  seconds: Number, // 秒数
+  *  ...,
+  *  [`${unit}`]: Number, // 最大单位数
+  *  t: String, // 时间拍平，如：'1days2hours3minutes4seconds5milliseconds'
+  *  tt: String, // 同上，两位数时间值
+
+```
+const time = 5 + 4 * 1000 + 3 * 1000 * 60 + 2 * 1000 * 60 * 60 + 1000 * 60 * 60 * 24
+utools.timeConvert(time);
+// {"milliseconds":5,"seconds":4,"minutes":3,"hours":2,"days":1,"t":"1days2hours3minutes4seconds5milliseconds","tt":"01days02hours03minutes04seconds05milliseconds"}
+
+conte time1 = 4 * 1000 + 2 * 1000 * 60 * 60 + 1000 * 60 * 60 * 24
+utools.timeConvert(time, 'hours');
+// {"milliseconds":0,"seconds":4,"minutes":0,"hours":26,"t":"26hours4seconds","tt":"26hours04seconds"}
 ```

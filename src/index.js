@@ -19,8 +19,9 @@ import aopDecorator from './aopDecorator';
 import randomNum from './randomNum';
 import shuffle from './shuffle';
 import ellipsis from './ellipsis';
+import timeConvert from './timeConvert';
 
-export {
+const utools = {
     find,
     findIndex,
     isEmpty,
@@ -41,5 +42,9 @@ export {
     aopDecorator,
     randomNum,
     shuffle,
-    ellipsis
+    ellipsis,
+    timeConvert,
 };
+
+export default utools
+module.exports = utools

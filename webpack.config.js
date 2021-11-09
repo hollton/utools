@@ -1,10 +1,7 @@
-const path = require('path')
-
 module.exports = {
-  entry: './_index.js',
+  entry: './src/index.js',
   output: {
     filename: 'index.js',
-  	path: path.resolve(__dirname),
     library: 'utools',
     libraryTarget: "umd"
   },
