@@ -362,14 +362,16 @@ utools.ellipsis({
   *  ...,
   *  [`${unit}`]: Number, // 最大单位数
   *  t: String, // 时间拍平，如：'1days2hours3minutes4seconds5milliseconds'
-  *  tt: String, // 同上，两位数时间值
+  *  tt: String, // 同t，两位数时间值
+  *  t_s: String, // 秒时间拍平，如：'1days2hours3minutes4seconds'
+  *  tt_s: String, // 同t_s，两位数时间值
 
 ```
 const time = 5 + 4 * 1000 + 3 * 1000 * 60 + 2 * 1000 * 60 * 60 + 1000 * 60 * 60 * 24
 utools.timeConvert(time);
-// {"milliseconds":5,"seconds":4,"minutes":3,"hours":2,"days":1,"t":"1days2hours3minutes4seconds5milliseconds","tt":"01days02hours03minutes04seconds05milliseconds"}
+// {"milliseconds":5,"seconds":4,"minutes":3,"hours":2,"days":1,"t":"1days2hours3minutes4seconds5milliseconds","tt":"01days02hours03minutes04seconds05milliseconds","t_s":"1days2hours3minutes4seconds","tt_s":"01days02hours03minutes04seconds"}
 
 conte time1 = 4 * 1000 + 2 * 1000 * 60 * 60 + 1000 * 60 * 60 * 24
 utools.timeConvert(time, 'hours');
-// {"milliseconds":0,"seconds":4,"minutes":0,"hours":26,"t":"26hours4seconds","tt":"26hours04seconds"}
+// {"milliseconds":0,"seconds":4,"minutes":0,"hours":26,"t":"26hours4seconds","tt":"26hours04seconds","t_s":"26hours4seconds","tt_s":"26hours04seconds"}
 ```
