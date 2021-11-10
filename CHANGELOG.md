@@ -8,7 +8,7 @@ timeline: true
 ## 1.1.7
 
 `2021-11-09`
-- :sunny: 新增 `timeConvert` 毫秒数转换为天、时、分、秒、毫秒 [7bc51c](https://github.com/hollton/utools/commit/7bc51cfa48608133c82f3091fa80c94a84fd83ec)
+- :sunny: 新增 `timeConvert` 毫秒数转换为天、时、分、秒、毫秒 [bf6da95](https://github.com/hollton/utools/commit/bf6da9527b13527c5d05a10e43fa70a135e78d67)
 
 ## 1.1.6
 
