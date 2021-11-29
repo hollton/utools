@@ -1,7 +1,7 @@
 module.exports = {
   entry: './src/index.js',
   output: {
-    filename: 'index.js',
+    filename: 'dist/es-utools.min.js',
     library: 'utools',
     libraryTarget: "umd"
   },

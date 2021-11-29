@@ -14,7 +14,7 @@ npm install es-utools  --save
 
 ### script
 ```
-<script src="index.js"></script>
+<script src="dist/es-utools.min.js"></script>
 ```
 
 ## 使用

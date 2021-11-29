@@ -1,12 +1,13 @@
 {
   "name": "es-utools",
-  "version": "1.1.8",
+  "version": "1.1.9",
   "description": "front tools",
-  "main": "index.js",
+  "main": "dist/es-utools.min.js",
+  "files": [
+    "dist/**/*.*"
+  ],
   "scripts": {
-    "copy:publish": "copyfiles ./index.html ./index.js ./package.json ./README.md ./CHANGELOG.md ./publish",
-    "build": "webpack --progress --optimize-minimize & npm run copy:publish",
-    "publish": "cd publish && npm publish",
+    "build": "webpack --progress --optimize-minimize",
     "test": "karma start"
   },
   "author": "holltonliu@163.com",
@@ -16,7 +17,6 @@
     "babel-loader": "^7.1.2",
     "babel-plugin-istanbul": "^4.1.5",
     "babel-preset-env": "^1.6.1",
-    "copyfiles": "^2.4.1",
     "install": "^0.10.1",
     "istanbul-instrumenter-loader": "^3.0.1",
     "jasmine-core": "^2.8.0",
