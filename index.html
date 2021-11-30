@@ -7,18 +7,18 @@
 	<h3>ellipsis</h3>
 	<div id="text" style="width:200px">文字超出2行，添加省略显示</div>
 	<hr/>
-<script type="text/javascript" src="./dist/es-utools.min.js"></script></body>
+
+	<script>
+		// ellipsis
+		utools.ellipsis({
+			target: document.getElementById('text'),
+			limitLine: 2
+		});
+
+		// timeConvert
+		const time = 4 * 1000 + 2 * 1000 * 60 * 60 + 1000 * 60 * 60 * 24 + 22
+		console.log(JSON.stringify(utools.timeConvert(time, 'hours')));
+
+	</script>
+</body>
 </html>
-
-<script>
-	// ellipsis
-	utools.ellipsis({
-		target: document.getElementById('text'),
-		limitLine: 2
-	});
-
-	// timeConvert
-	const time = 4 * 1000 + 2 * 1000 * 60 * 60 + 1000 * 60 * 60 * 24 + 22
-	console.log(JSON.stringify(utools.timeConvert(time, 'hours')));
-
-</script>
