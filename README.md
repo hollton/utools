@@ -1,8 +1,10 @@
-﻿# utools
-[![npm](https://img.shields.io/npm/v/es-utools.svg)](https://www.npmjs.com/package/es-utools) 
-[![LICENSE MIT](https://img.shields.io/npm/l/es-utools.svg)](https://www.npmjs.com/package/es-utools) 
+# utools 前端工具库
 
-前端工具库
+![](https://flat.badgen.net/npm/v/es-utools)
+![](https://flat.badgen.net/bundlephobia/minzip/es-utools)
+![](https://flat.badgen.net/npm/license/es-utools)
+![](https://flat.badgen.net/npm/dt/es-utools)
+
 > 开发过程中的自用函数封装整理
 
 ## 安装
