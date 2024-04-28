@@ -20,6 +20,7 @@ import randomNum from './randomNum';
 import shuffle from './shuffle';
 import ellipsis from './ellipsis';
 import timeConvert from './timeConvert';
+import bytesToSize from './bytesToSize';
 
 const utools = {
     find,
@@ -44,6 +45,7 @@ const utools = {
     shuffle,
     ellipsis,
     timeConvert,
+    bytesToSize,
 };
 
 export default utools

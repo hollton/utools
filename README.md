@@ -62,6 +62,7 @@ utools.find();
 - [shuffle(data)](#shuffledata)
 - [ellipsis(options)](#ellipsisoptions)
 - [timeConvert(ms = 0, unit = 'days')](#timeconvertms--0-unit--days)
+- [bytesToSize(bytes = 0, bit = 2, index)](#bytestosizebytes--0-bit--2-index)
 
 <!-- /TOC -->
 
@@ -374,4 +375,20 @@ utools.timeConvert(time);
 conte time1 = 4 * 1000 + 2 * 1000 * 60 * 60 + 1000 * 60 * 60 * 24
 utools.timeConvert(time, 'hours');
 // {"milliseconds":0,"seconds":4,"minutes":0,"hours":26,"t":"26hours4seconds","tt":"26hours04seconds","t_s":"26hours4seconds","tt_s":"26hours04seconds"}
+```
+
+### bytesToSize(bytes = 0, bit = 2, index)
+bytesToSize [Byte字节转 ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']]
+#### params
+* bytes: Number 字节数，默认0
+* bit: Number小数点位数，默认2
+* index: Number 指定转换单位，默认自动计算
+#### return
+* size: String 转换后的数值，带单位
+```
+const storage = 1707761707766
+utools.bytesToSize(storage);
+// 1.55 TB
+utools.bytesToSize(storage, 3, 3);
+// 1590.477 GB
 ```

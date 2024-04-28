@@ -1,6 +1,6 @@
 {
   "name": "es-utools",
-  "version": "1.1.9",
+  "version": "1.2.0",
   "description": "front tools",
   "main": "dist/es-utools.min.js",
   "files": [
